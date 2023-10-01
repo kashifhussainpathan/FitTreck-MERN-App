@@ -14,7 +14,7 @@ const cors = require("cors");
 
 // middleware
 const corsOptions = {
-  origin: "https://fittreck-mern-app.onrender.com",
+  origin: "https://fit-treck-mern-app.vercel.app",
 };
 app.use(express.json());
 app.use(cors(corsOptions));
