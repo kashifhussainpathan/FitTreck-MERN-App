@@ -1,0 +1,23 @@
+.usercard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0px 0px 8px 2px var(--box-shodow-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.usercard img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.usercard__details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.usercard__details h3 {
+  margin: auto;
+}

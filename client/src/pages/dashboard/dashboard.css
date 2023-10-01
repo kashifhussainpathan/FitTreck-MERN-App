@@ -1,0 +1,40 @@
+.caloriesSummary {
+  width: 100%;
+  margin: auto;
+}
+
+.caloriesSummary__details {
+  height: 100%;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.caloriesSummary__details .caloriesSummary__detail {
+  padding: 1rem;
+  min-width: 250px;
+  height: 125px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 8px 2px var(--box-shodow-color);
+  text-align: center;
+}
+
+.caloriesSummary__details img {
+  width: 100px;
+  margin: auto;
+}
+
+.caloriesSummary__detail div span:last-of-type {
+  font-weight: 600;
+}
+
+.caloriesChart {
+  margin-top: 1rem;
+  width: 600px;
+  height: 335px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 8px 2px var(--box-shodow-color);
+}

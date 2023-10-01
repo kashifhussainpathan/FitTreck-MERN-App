@@ -1,0 +1,98 @@
+:root {
+  --text-color: #020617;
+  --bg-color: #f1f5f9;
+  --box-shodow-color: #e2e8f0;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  font-family: var(--font-family);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input,
+select,
+option,
+button {
+  cursor: pointer;
+}
+
+input,
+label,
+select,
+textarea {
+  display: block;
+  margin: 5px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+input,
+select,
+textarea {
+  padding: 0.4rem 0.5rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid lightgray;
+  background-color: rgb(254, 254, 254);
+}
+
+textarea {
+  resize: none;
+}
+
+textarea::placeholder {
+  font-size: 0.9rem;
+}
+
+button {
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  background-color: transparent;
+  border: 1px solid var(--text-color);
+  box-shadow: 0px 0px 8px 2px var(--box-shodow-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 8px 2px var(--box-shodow-color);
+}
+
+form button {
+  margin: 0.8rem 0;
+}
+
+/* app styles */
+
+.app {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.app__routes {
+  margin: 0 auto;
+  padding-top: 2.5rem;
+}
+
+/* Utility Classes */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

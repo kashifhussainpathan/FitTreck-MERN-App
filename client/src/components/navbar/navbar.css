@@ -1,0 +1,57 @@
+.navbar {
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  align-items: center;
+  box-shadow: 0px 0px 8px 4px var(--box-shodow-color);
+}
+
+.navbar__logo svg {
+  font-size: 3.5rem;
+  font-weight: 800;
+  /* color: var(--text-color); */
+  color: #ff7070;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 2.5rem;
+  gap: 2.5rem;
+  color: var(--text-color);
+}
+
+.navbar__link svg {
+  font-size: 1.8rem;
+}
+
+.navbar__links a {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.navbar__link img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.food svg {
+  color: hsl(38, 100%, 65%);
+}
+
+.goal svg {
+  color: #6b9d54;
+}
+
+.exercise svg {
+  color: #5c7bd9;
+}
+
+.navbar h3 {
+  margin: 0;
+  color: var(--text-color);
+}
