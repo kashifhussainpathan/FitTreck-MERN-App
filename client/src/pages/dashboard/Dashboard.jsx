@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import EChartPieComponent from "../../components/EChartPieComponent";
 
 function Dashboard() {
+  const user = useSelector((state) => state.userState.user);
   const foods = useSelector((state) => state.foodState.foods);
   const goals = useSelector((state) => state.goalState.goals);
   const exercises = useSelector((state) => state.exerciseState.exercises);
@@ -72,9 +73,11 @@ function Dashboard() {
         </div>
       </div>
 
-      <div className="caloriesChart">
-        <EChartPieComponent calorieData={calorieData} />
-      </div>
+      {Object.keys(user).length > 0 && (
+        <div className="caloriesChart">
+          <EChartPieComponent calorieData={calorieData} />
+        </div>
+      )}
     </section>
   );
 }
