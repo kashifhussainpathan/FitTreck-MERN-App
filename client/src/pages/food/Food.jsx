@@ -1,6 +1,6 @@
 import "./food.css";
 import React from "react";
-import Modal from "../../components/modal/MOdal";
+import Modal from "../../components/modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import FoodForm from "../../components/foodForm/FoodForm";
 import {

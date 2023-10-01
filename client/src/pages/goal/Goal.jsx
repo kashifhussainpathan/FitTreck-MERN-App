@@ -1,6 +1,6 @@
 import "./goal.css";
 import React from "react";
-import Modal from "../../components/modal/MOdal";
+import Modal from "../../components/modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import GoalForm from "../../components/goalForm/GoalForm";
 import {

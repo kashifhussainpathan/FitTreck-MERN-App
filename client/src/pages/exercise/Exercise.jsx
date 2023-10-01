@@ -7,7 +7,7 @@ import {
   handleCloseExerciseModal,
   handleDeleteExerciseClick,
 } from "../../utils/exercise.utils";
-import Modal from "../../components/modal/MOdal";
+import Modal from "../../components/modal/Modal";
 
 function Exercise() {
   const dispatch = useDispatch();
