@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000";
+const API_URL = "https://fittreck-mern-app.onrender.com";
 
 export const login = async (userInputs) => {
   try {

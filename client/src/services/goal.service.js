@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/goals";
+const API_URL = "https://fittreck-mern-app.onrender.com/goals";
 
 export const fetchGoals = async (userId) => {
   try {

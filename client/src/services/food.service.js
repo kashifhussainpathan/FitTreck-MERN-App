@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/foods";
+const API_URL = "https://fittreck-mern-app.onrender.com/foods";
 
 export const fetchFoods = async (userId) => {
   try {
