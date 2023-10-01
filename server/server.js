@@ -14,7 +14,7 @@ const cors = require("cors");
 
 // middleware
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://fittreck-mern-app.onrender.com",
 };
 app.use(express.json());
 app.use(cors(corsOptions));
