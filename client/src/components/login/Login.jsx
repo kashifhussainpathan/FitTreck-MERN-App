@@ -10,7 +10,6 @@ import {
 
 function Login() {
   const navigate = useNavigate();
-  const location = useLocation();
   const dispatch = useDispatch();
   const userInputs = useSelector((state) => state.userState.userInputs);
 
