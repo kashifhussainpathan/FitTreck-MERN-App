@@ -3,7 +3,6 @@ import { login } from "../../services/user.service";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
-  setIsLoggedIn,
   setLoginError,
   setUser,
   setUserInputs,
@@ -25,7 +24,7 @@ function Login() {
     try {
       const data = await login(userInputs, dispatch);
       dispatch(setUser(data?.user));
-      dispatch(setIsLoggedIn(true));
+
       localStorage.setItem("token", JSON.stringify(data.token));
       navigate("/");
     } catch (error) {
