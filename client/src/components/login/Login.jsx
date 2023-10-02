@@ -1,9 +1,17 @@
 import React from "react";
 import { login } from "../../services/user.service";
 import { useDispatch, useSelector } from "react-redux";
-import { setUser, setUserInputs } from "../../actions/user.actions";
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  setIsLoggedIn,
+  setLoginError,
+  setUser,
+  setUserInputs,
+} from "../../actions/user.actions";
 
 function Login() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const userInputs = useSelector((state) => state.userState.userInputs);
 
@@ -15,12 +23,13 @@ function Login() {
   const handleLoginClick = async (e) => {
     e.preventDefault();
     try {
-      const data = await login(userInputs);
+      const data = await login(userInputs, dispatch);
       dispatch(setUser(data?.user));
+      dispatch(setIsLoggedIn(true));
       localStorage.setItem("token", JSON.stringify(data.token));
-      console.log(data.token);
+      navigate("/");
     } catch (error) {
-      console.error(error.message);
+      dispatch(setLoginError("Invalid credentials"));
     }
   };
 
