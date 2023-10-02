@@ -27,7 +27,7 @@ function User() {
             </>
           ) : (
             <>
-              <Singup />
+              <Singup setIsAlreadyHaveAnAccount={setIsAlreadyHaveAnAccount} />
 
               <p onClick={() => setIsAlreadyHaveAnAccount(true)}>
                 Already have an account.

@@ -23,7 +23,6 @@ function Login() {
     try {
       const data = await login(userInputs, dispatch);
       dispatch(setUser(data?.user));
-
       localStorage.setItem("token", JSON.stringify(data.token));
       navigate("/");
     } catch (error) {
