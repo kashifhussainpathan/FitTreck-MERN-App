@@ -1,21 +1,21 @@
 import axios from "axios";
+import { setLoginError } from "../actions/user.actions";
 
 const API_URL = "https://fittreck-mern-app.onrender.com";
 
-export const login = async (userInputs) => {
+export const login = async (userInputs, dispatch) => {
   try {
     const response = await axios.post(`${API_URL}/login`, userInputs);
-
-    console.log(response);
 
     if (response.status === 200) {
       const data = response.data;
       return data;
+    } else if (response.status === 401) {
+      throw new Error("Invalid credentials");
     } else {
-      console.error("Oops, Failed to login!");
     }
   } catch (error) {
-    console.error(error.message);
+    throw error;
   }
 };
 
@@ -46,7 +46,7 @@ export const fetchUser = async (token) => {
       const user = response.data.user;
       return user;
     } else {
-      console.error("Oops, Failed to signup!");
+      console.log(response.status);
     }
   } catch (error) {
     console.error(error.message);
