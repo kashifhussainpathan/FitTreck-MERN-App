@@ -25,29 +25,32 @@ function Exercise() {
         </Modal>
       )}
 
-      <div className="exercises-details">
-        {exercises.length > 0 ? (
-          exercises?.map(({ _id, name, duration, caloriesBurned }) => (
-            <div key={_id}>
-              <h2>{name}</h2>
-              <p>Duration: {duration}min</p>
-              <p>Calories Burned: {caloriesBurned}kcal</p>
-              <button
-                onClick={() => handleDeleteExerciseClick(_id, dispatch, user)}
-              >
-                Delete Exercise
-              </button>
-            </div>
-          ))
-        ) : (
-          <p>No exercises available. </p>
-        )}
-      </div>
-
-      <div>
+      <div className="add-exercise">
         <button onClick={() => handleAddExerciseClick(dispatch)}>
           Add Exerise
         </button>
+      </div>
+
+      <div className="exercises-details">
+        {exercises.length > 0 ? (
+          exercises
+            ?.slice()
+            .reverse()
+            .map(({ _id, name, duration, caloriesBurned }) => (
+              <div key={_id}>
+                <h2>{name}</h2>
+                <p>Duration: {duration}min</p>
+                <p>Calories Burned: {caloriesBurned}kcal</p>
+                <button
+                  onClick={() => handleDeleteExerciseClick(_id, dispatch, user)}
+                >
+                  Delete Exercise
+                </button>
+              </div>
+            ))
+        ) : (
+          <p>No exercises available. </p>
+        )}
       </div>
     </div>
   );

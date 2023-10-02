@@ -24,38 +24,41 @@ function Goal() {
         </Modal>
       )}
 
+      <div className="add-goal">
+        <button onClick={() => handleAddGoalClick(dispatch)}>Add Goal</button>
+      </div>
+
       <div className="goals-details">
         {goals.length > 0 ? (
-          goals?.map(
-            ({
-              _id,
-              name,
-              status,
-              targetDate,
-              description,
-              targetCalories,
-            }) => (
-              <div key={_id}>
-                <h2>{name} </h2>
-                <p>Status: {status}</p>
-                <p>Target Date: {formatDate(targetDate)}</p>
-                <p>{description}</p>
-                <p>Target Calories: {targetCalories}</p>
-                <button
-                  onClick={() => handleDeleteGoalClick(_id, dispatch, user)}
-                >
-                  Delete Goal
-                </button>
-              </div>
+          goals
+            ?.slice()
+            .reverse()
+            .map(
+              ({
+                _id,
+                name,
+                status,
+                targetDate,
+                description,
+                targetCalories,
+              }) => (
+                <div key={_id}>
+                  <h2>{name} </h2>
+                  <p>Status: {status}</p>
+                  <p>Target Date: {formatDate(targetDate)}</p>
+                  <p className="description">{description}</p>
+                  <p>Target Calories: {targetCalories} kcal</p>
+                  <button
+                    onClick={() => handleDeleteGoalClick(_id, dispatch, user)}
+                  >
+                    Delete Goal
+                  </button>
+                </div>
+              )
             )
-          )
         ) : (
           <p>No goals available. </p>
         )}
-      </div>
-
-      <div>
-        <button onClick={() => handleAddGoalClick(dispatch)}>Add Goal</button>
       </div>
     </div>
   );
