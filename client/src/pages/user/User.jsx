@@ -3,12 +3,20 @@ import { useSelector } from "react-redux";
 import Login from "../../components/login/Login";
 import Singup from "../../components/signup/Signup";
 import UserCard from "../../components/userCard/UserCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function User() {
+  const navigate = useNavigate();
   const user = useSelector((state) => state.userState.user);
   const isLoginError = useSelector((state) => state.userState.loginError);
   const [isAlreadyHaveAnAccount, setIsAlreadyHaveAnAccount] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div>
