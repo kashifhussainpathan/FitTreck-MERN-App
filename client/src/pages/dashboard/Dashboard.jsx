@@ -2,9 +2,10 @@ import "./dashboard.css";
 import burn from "../../assets/burn.png";
 import food from "../../assets/food.png";
 import goal from "../../assets/goal.png";
-import exercise from "../../assets/exercise.png";
 import { useSelector } from "react-redux";
+import exercise from "../../assets/exercise.png";
 import EChartPieComponent from "../../components/EChartPieComponent";
+import User from "../user/User";
 
 function Dashboard() {
   const user = useSelector((state) => state.userState.user);
@@ -38,47 +39,53 @@ function Dashboard() {
   ];
 
   return (
-    <section className="caloriesSummary">
-      <div className="caloriesSummary__details">
-        <div className="caloriesSummary__detail">
-          <img src={burn} alt="burnImage" />
-          <div>
-            <span>Calories burned : </span>
-            <span>{totalCaloriesBurned} kcal</span>
+    <div className="dashboard">
+      <section className="caloriesSummary">
+        <div className="caloriesSummary__details">
+          <div className="caloriesSummary__detail">
+            <img src={burn} alt="burnImage" />
+            <div>
+              <span>Calories burned : </span>
+              <span>{totalCaloriesBurned} kcal</span>
+            </div>
+          </div>
+
+          <div className="caloriesSummary__detail">
+            <img src={exercise} alt="ExerciseImage" />
+            <div>
+              <span>Calories goal : </span>
+              <span>{totalCaloriesGoal} kcal</span>
+            </div>
+          </div>
+
+          <div className="caloriesSummary__detail">
+            <img src={food} alt="foodImage" />
+            <div>
+              <span>Calories Consumed : </span>{" "}
+              <span>{totalCaloriesConsumed} kcal </span>
+            </div>
+          </div>
+
+          <div className="caloriesSummary__detail">
+            <img src={goal} alt="goalImage" />
+            <div>
+              <span>Goal Calories Left : </span>
+              <span>{remainingCaloriesToGoal}kcal </span>
+            </div>
           </div>
         </div>
 
-        <div className="caloriesSummary__detail">
-          <img src={exercise} alt="ExerciseImage" />
-          <div>
-            <span>Calories goal : </span>
-            <span>{totalCaloriesGoal} kcal</span>
+        {Object.keys(user).length > 0 && (
+          <div className="caloriesChart">
+            <EChartPieComponent calorieData={calorieData} />
           </div>
-        </div>
+        )}
+      </section>
 
-        <div className="caloriesSummary__detail">
-          <img src={food} alt="foodImage" />
-          <div>
-            <span>Calories Consumed : </span>{" "}
-            <span>{totalCaloriesConsumed} kcal </span>
-          </div>
-        </div>
-
-        <div className="caloriesSummary__detail">
-          <img src={goal} alt="goalImage" />
-          <div>
-            <span>Goal Calories Left : </span>
-            <span>{remainingCaloriesToGoal}kcal </span>
-          </div>
-        </div>
-      </div>
-
-      {Object.keys(user).length > 0 && (
-        <div className="caloriesChart">
-          <EChartPieComponent calorieData={calorieData} />
-        </div>
-      )}
-    </section>
+      <section className="user-wrapper">
+        <User />
+      </section>
+    </div>
   );
 }
 
