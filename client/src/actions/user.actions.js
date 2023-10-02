@@ -18,3 +18,10 @@ export const setToken = (token) => {
     payload: token,
   };
 };
+
+export const setLoginError = (error) => {
+  return {
+    type: "SHOW_LOGIN_ERROR",
+    payload: error,
+  };
+};
