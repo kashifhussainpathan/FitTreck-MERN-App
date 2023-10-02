@@ -2,6 +2,8 @@ const initialState = {
   user: {},
   token: "",
   userInputs: { email: "", password: "", username: "" },
+  isloggedIn: false,
+  loginError: "",
 };
 
 const userReducer = (state = initialState, action) => {
@@ -23,6 +25,17 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         token: payload,
+      };
+
+    case "SET_IS-LOGGED-IN":
+      return {
+        isloggedIn: payload,
+      };
+
+    case "SHOW_LOGIN_ERROR":
+      return {
+        ...state,
+        loginError: payload,
       };
 
     default:
