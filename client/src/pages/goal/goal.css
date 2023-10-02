@@ -1,27 +1,29 @@
-.goals {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
 .goals-details {
   width: 100%;
   margin: 0 auto;
   gap: 1.5rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
 }
 
 .goals-details div {
+  width: 200px;
+  height: 280px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 8px 2px var(--box-shodow-color);
+}
+
+.goals-details .description {
+  width: 200px;
+  flex-grow: 1;
+  word-wrap: break-word;
 }
 
 .goals-details div h2,
@@ -33,4 +35,9 @@
 .goals-details div button {
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
+}
+
+.add-goal {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }

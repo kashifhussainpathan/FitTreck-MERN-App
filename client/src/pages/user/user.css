@@ -4,3 +4,16 @@
   justify-content: center;
   align-items: center;
 }
+
+.auth {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth p {
+  color: darkblue;
+  cursor: pointer;
+}

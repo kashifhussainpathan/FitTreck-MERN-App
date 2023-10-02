@@ -1,8 +1,6 @@
 .exercises {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+  width: 80%;
+  margin: auto;
 }
 
 .exercises-details {
@@ -16,6 +14,7 @@
 }
 
 .exercises-details div {
+  width: 200px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -33,4 +32,9 @@
 .exercises-details div button {
   margin-top: 0.5rem;
   margin-bottom: 0.2rem;
+}
+
+.add-exercise {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }

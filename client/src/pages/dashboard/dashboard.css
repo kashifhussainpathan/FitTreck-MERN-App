@@ -1,5 +1,11 @@
-.caloriesSummary {
+.dashboard {
   width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.caloriesSummary {
+  /* width: 100%; */
   margin: auto;
 }
 
@@ -37,4 +43,8 @@
   height: 335px;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 8px 2px var(--box-shodow-color);
+}
+
+.user-wrapper {
+  float: right;
 }

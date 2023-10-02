@@ -86,8 +86,9 @@ form button {
 }
 
 .app__routes {
+  width: 100%;
   margin: 0 auto;
-  padding-top: 2.5rem;
+  padding-top: 1.5rem;
 }
 
 /* Utility Classes */

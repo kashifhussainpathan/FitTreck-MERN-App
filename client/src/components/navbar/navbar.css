@@ -11,8 +11,7 @@
 .navbar__logo svg {
   font-size: 3.5rem;
   font-weight: 800;
-  /* color: var(--text-color); */
-  color: #ff7070;
+  color: darkgray;
 }
 
 .navbar__links {
@@ -49,6 +48,10 @@
 
 .exercise svg {
   color: #5c7bd9;
+}
+
+.home svg {
+  color: #ff7070;
 }
 
 .navbar h3 {
