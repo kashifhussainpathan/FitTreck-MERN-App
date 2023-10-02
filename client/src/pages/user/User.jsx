@@ -3,15 +3,39 @@ import { useSelector } from "react-redux";
 import Login from "../../components/login/Login";
 import Singup from "../../components/signup/Signup";
 import UserCard from "../../components/userCard/UserCard";
+import { useState } from "react";
 
 function User() {
-  const token = useSelector((state) => state.userState.token);
-  const user = useSelector((state) => state?.userState?.user);
+  let userObj = {};
+  const user = useSelector((state) => state.userState.user);
+  const isLoginError = useSelector((state) => state.userState.loginError);
+  const [isAlreadyHaveAnAccount, setIsAlreadyHaveAnAccount] = useState(false);
 
   return (
-    <div className="user">
-      {Object.keys(user).length <= 0 ? (
-        <>{token ? <Login /> : <Singup />}</>
+    <div>
+      {user == userObj && user == undefined ? (
+        <div className="auth">
+          {isAlreadyHaveAnAccount ? (
+            <>
+              <p style={{ color: "red" }}>
+                {isLoginError !== "" ? isLoginError : ""}
+              </p>
+              <Login />
+
+              <p onClick={() => setIsAlreadyHaveAnAccount(false)}>
+                Create new accont.
+              </p>
+            </>
+          ) : (
+            <>
+              <Singup />
+
+              <p onClick={() => setIsAlreadyHaveAnAccount(true)}>
+                Already have an account.
+              </p>
+            </>
+          )}
+        </div>
       ) : (
         <UserCard user={user} />
       )}
