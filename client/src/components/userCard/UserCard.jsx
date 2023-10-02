@@ -1,13 +1,10 @@
 import "./userCard.css";
 import React from "react";
 import { TbUserEdit } from "react-icons/tb";
+import { useDispatch } from "react-redux";
 
 function UserCard({ user }) {
   const { username, profilePictureUrl, email, phoneNumber } = user;
-
-  const handleLogoutClick = () => {
-    localStorage.removeItem("token");
-  };
 
   return (
     <div className="usercard">
@@ -25,7 +22,6 @@ function UserCard({ user }) {
         <h3>@{username}</h3>
         <div>{email}</div>
         <div>{phoneNumber}</div>
-        <button onClick={handleLogoutClick}>Logout</button>
       </div>
     </div>
   );
