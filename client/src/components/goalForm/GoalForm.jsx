@@ -92,6 +92,7 @@ function GoalForm() {
             placeholder="Description"
             value={goalData.description}
             onChange={handleGoalInputChange}
+            maxLength="50"
             required
           />
         </label>
@@ -116,3 +117,4 @@ function GoalForm() {
 }
 
 export default GoalForm;
+s
