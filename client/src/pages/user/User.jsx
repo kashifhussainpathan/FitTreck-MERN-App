@@ -6,14 +6,13 @@ import UserCard from "../../components/userCard/UserCard";
 import { useState } from "react";
 
 function User() {
-  let userObj = {};
   const user = useSelector((state) => state.userState.user);
   const isLoginError = useSelector((state) => state.userState.loginError);
   const [isAlreadyHaveAnAccount, setIsAlreadyHaveAnAccount] = useState(false);
 
   return (
     <div>
-      {user == userObj && user == undefined ? (
+      {Object.keys(user).length <= 0 ? (
         <div className="auth">
           {isAlreadyHaveAnAccount ? (
             <>
