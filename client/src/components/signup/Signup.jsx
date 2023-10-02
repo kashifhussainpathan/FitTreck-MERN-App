@@ -3,8 +3,10 @@ import React from "react";
 import { signup } from "../../services/user.service";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken, setUserInputs } from "../../actions/user.actions";
+import { useNavigate } from "react-router-dom";
 
 function Singup() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const userInputs = useSelector((state) => state.userState.userInputs);
 
@@ -19,6 +21,7 @@ function Singup() {
       const token = await signup(userInputs);
       localStorage.setItem("token", JSON.stringify(token));
       dispatch(setToken(token));
+      navigate("/login");
     } catch (error) {
       console.error(error.message);
     }
