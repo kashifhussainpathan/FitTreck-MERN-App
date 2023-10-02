@@ -117,4 +117,3 @@ function GoalForm() {
 }
 
 export default GoalForm;
-s
