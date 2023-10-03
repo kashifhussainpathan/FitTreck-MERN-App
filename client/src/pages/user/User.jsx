@@ -16,7 +16,7 @@ function User() {
     if (user) {
       navigate("/");
     }
-  }, []);
+  }, [user]);
 
   return (
     <div>
