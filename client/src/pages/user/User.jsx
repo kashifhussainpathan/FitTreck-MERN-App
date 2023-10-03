@@ -1,10 +1,10 @@
 import "./user.css";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Login from "../../components/login/Login";
 import Singup from "../../components/signup/Signup";
 import UserCard from "../../components/userCard/UserCard";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 function User() {
   const navigate = useNavigate();
