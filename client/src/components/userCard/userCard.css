@@ -23,3 +23,13 @@
 .usercard__details h3 {
   margin: auto;
 }
+
+.github {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.github svg {
+  font-size: 1.5rem;
+}
