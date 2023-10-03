@@ -18,7 +18,7 @@ function FoodForm() {
       });
       if (addedFood) {
         getFoods(dispatch, user._id);
-        dispatch(setShowFoodModal(true));
+        dispatch(setShowFoodModal(false));
         dispatch(
           setFoodData({
             name: "",
