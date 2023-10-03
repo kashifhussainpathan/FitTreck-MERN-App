@@ -1,5 +1,6 @@
 import "./userCard.css";
 import React from "react";
+import { AiFillGithub } from "react-icons/ai";
 
 function UserCard({ user }) {
   const { username, profilePictureUrl, email, phoneNumber } = user;
@@ -20,12 +21,12 @@ function UserCard({ user }) {
         <h3>@{username}</h3>
         <div>{email}</div>
         <div>{phoneNumber}</div>
-        <div>
+        <div className="github">
           <a
             href="https://github.com/kashifhussainpathan/FitTreck-MERN-App"
             target="_blank"
           >
-            Github
+            <AiFillGithub />
           </a>
         </div>
       </div>
