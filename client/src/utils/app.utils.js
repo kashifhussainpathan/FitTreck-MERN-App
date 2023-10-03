@@ -61,6 +61,8 @@ export const getUser = async (token, dispatch) => {
     const user = await fetchUser(token);
     dispatch(setUser(user));
   } catch (error) {
+    localStorage.removeItem("token");
+    localStorage.removeItem("isLoggedIn");
     console.error(error.message);
   }
 };
