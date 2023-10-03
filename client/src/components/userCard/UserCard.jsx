@@ -31,7 +31,9 @@ function UserCard({ user }) {
         <h3>@{username}</h3>
         <div>{email}</div>
         <div>{phoneNumber}</div>
-        <div onClick={handleLogout}>Logout </div>
+        <button onClick={handleLogout} className="logout">
+          Logout{" "}
+        </button>
         <div className="github">
           <a
             href="https://github.com/kashifhussainpathan/FitTreck-MERN-App"
