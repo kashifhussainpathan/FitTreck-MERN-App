@@ -1,7 +1,7 @@
 import React from "react";
 import { getFoods } from "../../utils/app.utils";
 import { useDispatch, useSelector } from "react-redux";
-import { setFoodData } from "../../actions/food.actions";
+import { setFoodData, setShowFoodModal } from "../../actions/food.actions";
 import { sendFoodToBackend } from "../../services/food.service";
 
 function FoodForm() {
@@ -18,6 +18,7 @@ function FoodForm() {
       });
       if (addedFood) {
         getFoods(dispatch, user._id);
+        dispatch(setShowFoodModal(true));
         dispatch(
           setFoodData({
             name: "",

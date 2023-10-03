@@ -1,11 +1,12 @@
 import "./userCard.css";
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../actions/user.actions";
 
-function UserCard({ user }) {
+function UserCard() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.userState.user);
   const { username, profilePictureUrl, email, phoneNumber } = user;
 
   const handleLogout = () => {

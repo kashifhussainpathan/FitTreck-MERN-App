@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setExerciseData } from "../../actions/exercise.actions";
+import {
+  setExerciseData,
+  setShowExerciseModal,
+} from "../../actions/exercise.actions";
 import { getExercises } from "../../utils/app.utils";
 import { sendExerciseToBackend } from "../../services/exercise.service";
 
@@ -21,6 +24,7 @@ function ExerciseForm() {
       });
       if (addedExercise) {
         getExercises(dispatch, user._id);
+        dispatch(setShowExerciseModal(false));
         dispatch(
           setExerciseData({
             name: "",

@@ -1,5 +1,5 @@
 import React from "react";
-import { setGoalData } from "../../actions/goal.actions";
+import { setGoalData, setShowGoalModal } from "../../actions/goal.actions";
 import { useDispatch, useSelector } from "react-redux";
 import { sendGoalToBackend } from "../../services/goal.service";
 import { getGoals } from "../../utils/app.utils";
@@ -18,6 +18,7 @@ function GoalForm() {
       });
       if (addedGoal) {
         getGoals(dispatch, user._id);
+        dispatch(setShowGoalModal(false));
         dispatch(
           setGoalData({
             name: "",
@@ -29,7 +30,7 @@ function GoalForm() {
         );
       }
     } catch (error) {
-      alert(`${error}`);
+      console.log(error);
     }
   };
 

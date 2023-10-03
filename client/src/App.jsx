@@ -5,7 +5,7 @@ import User from "./pages/user/User";
 import Navbar from "./components/navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Exercise from "./pages/exercise/Exercise";
-import { setIsLoggedIn, setToken } from "./actions/user.actions";
+import { setToken } from "./actions/user.actions";
 import Dashboard from "./pages/dashboard/Dashboard";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,6 +16,7 @@ import {
   getUser,
 } from "./utils/app.utils";
 import RequiresAuth from "./components/RequiresAuth";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,6 +43,21 @@ function App() {
 
   return (
     <div className="app">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName=""
+        containerStyle={{}}
+        toastOptions={{
+          className: "",
+          duration: 2000,
+          style: {
+            background: "#363636",
+            color: "#fff",
+          },
+        }}
+      />
       <Navbar />
 
       <div className="app__routes">

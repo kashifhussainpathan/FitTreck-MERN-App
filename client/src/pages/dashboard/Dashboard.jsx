@@ -4,8 +4,8 @@ import food from "../../assets/food.png";
 import goal from "../../assets/goal.png";
 import { useSelector } from "react-redux";
 import exercise from "../../assets/exercise.png";
+import UserCard from "../../components/userCard/UserCard";
 import EChartPieComponent from "../../components/EChartPieComponent";
-import User from "../user/User";
 
 function Dashboard() {
   const user = useSelector((state) => state.userState.user);
@@ -83,7 +83,7 @@ function Dashboard() {
       </section>
 
       <section className="user-wrapper">
-        <User />
+        <UserCard />
       </section>
     </div>
   );

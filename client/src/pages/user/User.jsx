@@ -14,32 +14,28 @@ function User() {
 
   return (
     <div>
-      {Object.keys(user).length <= 0 ? (
-        <div className="auth">
-          {isAlreadyHaveAnAccount ? (
-            <>
-              <p style={{ color: "red" }}>
-                {isLoginError !== "" ? isLoginError : ""}
-              </p>
-              <Login />
+      <div className="auth">
+        {isAlreadyHaveAnAccount ? (
+          <>
+            <p style={{ color: "red" }}>
+              {isLoginError !== "" ? isLoginError : ""}
+            </p>
+            <Login />
 
-              <p onClick={() => setIsAlreadyHaveAnAccount(false)}>
-                Create new accont.
-              </p>
-            </>
-          ) : (
-            <>
-              <Singup setIsAlreadyHaveAnAccount={setIsAlreadyHaveAnAccount} />
+            <p onClick={() => setIsAlreadyHaveAnAccount(false)}>
+              Create new accont.
+            </p>
+          </>
+        ) : (
+          <>
+            <Singup setIsAlreadyHaveAnAccount={setIsAlreadyHaveAnAccount} />
 
-              <p onClick={() => setIsAlreadyHaveAnAccount(true)}>
-                Already have an account.
-              </p>
-            </>
-          )}
-        </div>
-      ) : (
-        <UserCard user={user} />
-      )}
+            <p onClick={() => setIsAlreadyHaveAnAccount(true)}>
+              Already have an account.
+            </p>
+          </>
+        )}
+      </div>
     </div>
   );
 }

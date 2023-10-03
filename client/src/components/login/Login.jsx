@@ -1,7 +1,8 @@
 import React from "react";
 import { login } from "../../services/user.service";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import {
   setLoginError,
   setUser,
@@ -20,15 +21,23 @@ function Login() {
 
   const handleLoginClick = async (e) => {
     e.preventDefault();
-    try {
-      const data = await login(userInputs, dispatch);
-      dispatch(setUser(data?.user));
-      localStorage.setItem("isLoggedIn", true);
-      localStorage.setItem("token", JSON.stringify(data.token));
-      navigate("/");
-    } catch (error) {
-      dispatch(setLoginError("Invalid credentials"));
-    }
+
+    const data = login(userInputs, dispatch);
+
+    toast.promise(data, {
+      loading: "Logging in...",
+      success: (data) => {
+        dispatch(setUser(data?.user));
+        localStorage.setItem("isLoggedIn", true);
+        localStorage.setItem("token", JSON.stringify(data.token));
+        navigate("/");
+        return <b>Login successful!</b>;
+      },
+      error: (error) => {
+        dispatch(setLoginError("Invalid credentials"));
+        return <b>Failed to log in. Please check your credentials.</b>;
+      },
+    });
   };
 
   return (
