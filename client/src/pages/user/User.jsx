@@ -12,12 +12,6 @@ function User() {
   const isLoginError = useSelector((state) => state.userState.loginError);
   const [isAlreadyHaveAnAccount, setIsAlreadyHaveAnAccount] = useState(false);
 
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user]);
-
   return (
     <div>
       {Object.keys(user).length <= 0 ? (
