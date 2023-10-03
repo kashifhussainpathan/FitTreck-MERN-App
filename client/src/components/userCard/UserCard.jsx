@@ -1,7 +1,5 @@
 import "./userCard.css";
 import React from "react";
-import { TbUserEdit } from "react-icons/tb";
-import { useDispatch } from "react-redux";
 
 function UserCard({ user }) {
   const { username, profilePictureUrl, email, phoneNumber } = user;
@@ -22,6 +20,14 @@ function UserCard({ user }) {
         <h3>@{username}</h3>
         <div>{email}</div>
         <div>{phoneNumber}</div>
+        <div>
+          <a
+            href="https://github.com/kashifhussainpathan/FitTreck-MERN-App"
+            target="_blank"
+          >
+            Github
+          </a>
+        </div>
       </div>
     </div>
   );
