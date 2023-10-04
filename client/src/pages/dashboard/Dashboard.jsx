@@ -43,10 +43,8 @@ function Dashboard() {
   ];
 
   if (
-    Object.keys(user).length > 0 &&
-    isExercisesLoading &&
-    isFoodsLoading &&
-    isGoalsLoading
+    Object.keys(user).length > 0 ||
+    (isExercisesLoading && isFoodsLoading && isGoalsLoading)
   ) {
     return <DashboardLoader />;
   }
