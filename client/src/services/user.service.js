@@ -49,6 +49,6 @@ export const fetchUser = async (token) => {
       console.log(response.status);
     }
   } catch (error) {
-    console.error(error.message);
+    throw new Error(`${error.message}`);
   }
 };

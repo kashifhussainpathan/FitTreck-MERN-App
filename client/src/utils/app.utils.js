@@ -63,8 +63,9 @@ export const getUser = async (token, dispatch) => {
     dispatch(setUser(user));
     dispatch(setIsUserLoading(false));
   } catch (error) {
+    const emptyUser = {};
+    dispatch(setUser(emptyUser));
     localStorage.removeItem("token");
     localStorage.removeItem("isLoggedIn");
-    console.error(error.message);
   }
 };
