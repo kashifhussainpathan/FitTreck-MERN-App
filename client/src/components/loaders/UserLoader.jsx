@@ -8,9 +8,9 @@ function UserLoader() {
       <Skeleton count={1} circle width={100} height={100} />
 
       <div className="usercard__details">
-        <Skeleton width={150} count={1} />
-        <Skeleton width={150} count={1} />
-        <Skeleton width={150} count={1} />
+        <Skeleton width={170} count={1} />
+        <Skeleton width={170} count={1} />
+        <Skeleton width={170} count={1} />
       </div>
     </div>
   );
