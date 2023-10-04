@@ -33,12 +33,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (Object.keys(user).length > 0) {
-      getExercisesOptions(dispatch);
-      getFoods(dispatch, user._id);
-      getGoals(dispatch, user._id);
-      getExercises(dispatch, user._id);
-    }
+    getExercisesOptions(dispatch);
+    getFoods(dispatch, user._id);
+    getGoals(dispatch, user._id);
+    getExercises(dispatch, user._id);
   }, [user]);
 
   return (
