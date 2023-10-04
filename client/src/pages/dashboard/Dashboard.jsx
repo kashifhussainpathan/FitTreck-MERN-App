@@ -6,23 +6,26 @@ import { useSelector } from "react-redux";
 import exercise from "../../assets/exercise.png";
 import UserCard from "../../components/userCard/UserCard";
 import EChartPieComponent from "../../components/EChartPieComponent";
+import DashboardLoader from "../../components/loaders/DashboardLoader";
 
 function Dashboard() {
-  const user = useSelector((state) => state.userState.user);
   const foods = useSelector((state) => state.foodState.foods);
   const goals = useSelector((state) => state.goalState.goals);
   const exercises = useSelector((state) => state.exerciseState.exercises);
+  const isGoalsLoading = useSelector((state) => state.goalState.isGoalsLoading);
+  const isFoodsLoading = useSelector((state) => state.foodState.isFoodsLoading);
+  const isExercisesLoading = useSelector(
+    (state) => state.exerciseState.isExercisesLoading
+  );
 
   const totalCaloriesGoal = goals.reduce(
     (sum, goal) => goal.targetCalories + sum,
     0
   );
-
   const totalCaloriesConsumed = foods.reduce(
     (sum, food) => food.calories + sum,
     0
   );
-
   const totalCaloriesBurned = exercises.reduce(
     (sum, exercise) => exercise.caloriesBurned + sum,
     0
@@ -37,6 +40,10 @@ function Dashboard() {
     { value: totalCaloriesConsumed, name: "Calories Consumed" },
     { value: remainingCaloriesToGoal, name: "Remaining Calories to Goal" },
   ];
+
+  if (isExercisesLoading && isFoodsLoading && isGoalsLoading) {
+    return <DashboardLoader />;
+  }
 
   return (
     <div className="dashboard">
@@ -75,11 +82,9 @@ function Dashboard() {
           </div>
         </div>
 
-        {Object.keys(user).length > 0 && (
-          <div className="caloriesChart">
-            <EChartPieComponent calorieData={calorieData} />
-          </div>
-        )}
+        <div className="caloriesChart">
+          <EChartPieComponent calorieData={calorieData} />
+        </div>
       </section>
 
       <section className="user-wrapper">

@@ -2,7 +2,7 @@ const initialState = {
   user: {},
   token: "",
   userInputs: { email: "", password: "", username: "" },
-
+  isUserLoading: false,
   loginError: "",
 };
 
@@ -31,6 +31,12 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loginError: payload,
+      };
+
+    case "IS_USER_LOADING":
+      return {
+        ...state,
+        isUserLoading: payload,
       };
 
     default:

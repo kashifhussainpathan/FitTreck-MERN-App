@@ -1,12 +1,14 @@
 import "./userCard.css";
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
+import UserLoader from "../loaders/UserLoader";
 import { setUser } from "../../actions/user.actions";
+import { useDispatch, useSelector } from "react-redux";
 
 function UserCard() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userState.user);
+  const isUserLoading = useSelector((state) => state.userState.isUserLoading);
   const { username, profilePictureUrl, email, phoneNumber } = user;
 
   const handleLogout = () => {
@@ -15,6 +17,14 @@ function UserCard() {
     localStorage.removeItem("token");
     localStorage.removeItem("isLoggedIn");
   };
+
+  if (isUserLoading) {
+    return (
+      <>
+        <UserLoader />
+      </>
+    );
+  }
 
   return (
     <div className="usercard">

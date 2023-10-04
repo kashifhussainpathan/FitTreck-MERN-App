@@ -25,3 +25,10 @@ export const setLoginError = (error) => {
     payload: error,
   };
 };
+
+export const setIsUserLoading = (loading) => {
+  return {
+    type: "IS_USER_LOADING",
+    payload: loading,
+  };
+};

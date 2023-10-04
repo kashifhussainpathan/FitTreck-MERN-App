@@ -12,7 +12,7 @@ import {
   fetchExercises,
 } from "../services/exercise.service";
 import { fetchUser } from "../services/user.service";
-import { setUser } from "../actions/user.actions";
+import { setIsUserLoading, setUser } from "../actions/user.actions";
 
 export const getFoods = async (dispatch, userId) => {
   try {
@@ -30,7 +30,7 @@ export const getGoals = async (dispatch, userId) => {
     dispatch(setGoalsLoading(true));
     const goals = await fetchGoals(userId);
     dispatch(setGoals(goals));
-    dispatch(setGoalsLoading(true));
+    dispatch(setGoalsLoading(false));
   } catch (error) {
     throw new Error(`${error.message}`);
   }
@@ -58,8 +58,10 @@ export const getExercisesOptions = async (dispatch) => {
 
 export const getUser = async (token, dispatch) => {
   try {
+    dispatch(setIsUserLoading(true));
     const user = await fetchUser(token);
     dispatch(setUser(user));
+    dispatch(setIsUserLoading(false));
   } catch (error) {
     localStorage.removeItem("token");
     localStorage.removeItem("isLoggedIn");
