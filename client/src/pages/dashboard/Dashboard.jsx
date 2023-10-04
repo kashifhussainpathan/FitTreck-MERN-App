@@ -9,6 +9,7 @@ import EChartPieComponent from "../../components/EChartPieComponent";
 import DashboardLoader from "../../components/loaders/DashboardLoader";
 
 function Dashboard() {
+  const user = useSelector((state) => state.userState.user);
   const foods = useSelector((state) => state.foodState.foods);
   const goals = useSelector((state) => state.goalState.goals);
   const exercises = useSelector((state) => state.exerciseState.exercises);
@@ -41,7 +42,12 @@ function Dashboard() {
     { value: remainingCaloriesToGoal, name: "Remaining Calories to Goal" },
   ];
 
-  if (isExercisesLoading && isFoodsLoading && isGoalsLoading) {
+  if (
+    Object.keys(user).length > 0 &&
+    isExercisesLoading &&
+    isFoodsLoading &&
+    isGoalsLoading
+  ) {
     return <DashboardLoader />;
   }
 
