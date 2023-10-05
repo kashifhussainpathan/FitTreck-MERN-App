@@ -41,6 +41,10 @@ function Dashboard() {
     { value: remainingCaloriesToGoal, name: "Remaining Calories to Goal" },
   ];
 
+  if (Object.keys(user).length <= 0) {
+    return <DashboardLoader />;
+  }
+
   if (isExercisesLoading && isFoodsLoading && isGoalsLoading) {
     return <DashboardLoader />;
   }
